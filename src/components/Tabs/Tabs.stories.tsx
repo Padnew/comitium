@@ -2,26 +2,43 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Tabs } from "./index";
 import { Button } from "../Button";
 import { Card } from "../Card";
+import { Text } from "../Text";
 
 const meta: Meta<typeof Tabs> = {
   title: "Components/Tabs",
   component: Tabs,
   tags: ["autodocs"],
-  args: {
-  },
+  args: {},
 };
 
 export default meta;
 type Story = StoryObj<typeof Tabs>;
 
 export const SimpleTabs: Story = {
-    render: () => (
-        <Tabs
-  tabs={[
-    { label: "Overview", content: (<Button variant="outline">Click Me!</Button>) },
-    { label: "Details", content: <Card>The details are very simple</Card> },
-  ]}
-  defaultTab={0}
-/>
-      ),
-    };
+  render: () => (
+    <Tabs
+      tabs={[
+        {
+          label: "Button Tab",
+          content: (
+            <Button
+              variant="outline"
+              onClick={() => window.alert("Star comitium UI on GitHub")}
+            >
+              Click Me!
+            </Button>
+          ),
+        },
+        {
+          label: "Card Tab",
+          content: <Card>The details are very simple</Card>,
+        },
+        {
+          label: "Text Tab",
+          content: <Text weight="bold">Star this project!</Text>,
+        },
+      ]}
+      defaultTab={0}
+    />
+  ),
+};
