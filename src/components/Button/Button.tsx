@@ -3,12 +3,10 @@ import clsx from "clsx";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "default" | "outline" | "cancel";
-  bgColor?: string;
 };
 
 export const Button: React.FC<ButtonProps> = ({
   variant = "default",
-  bgColor,
   className,
   children,
   ...props
@@ -22,15 +20,7 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   return (
-    <button
-      className={clsx(
-        base,
-        variants[variant],
-        bgColor && `bg-[${bgColor}]`,
-        className
-      )}
-      {...props}
-    >
+    <button className={clsx(base, variants[variant], className)} {...props}>
       {children}
     </button>
   );
