@@ -8,6 +8,7 @@ type TextProps = {
   linkTo?: string;
   className?: string;
   children?: React.ReactNode;
+  newTab?: boolean;
 };
 
 export const Text: React.FC<TextProps> = ({
@@ -17,6 +18,7 @@ export const Text: React.FC<TextProps> = ({
   linkTo,
   className,
   children,
+  newTab,
 }) => {
   const textClasses = clsx(
     {
@@ -38,8 +40,29 @@ export const Text: React.FC<TextProps> = ({
 
   const Component = linkTo ? "a" : "p";
 
+  //This will check for whether the link provided is relative or Absolute
+  const isExternal = linkTo
+    ? /^(http|https):\/\//.test(linkTo) || /^[\w.-]+\.\w+/.test(linkTo)
+    : false;
+
+  //Appends the appropritate prefix based on either relative or absolute
+  const normalizedHref = linkTo
+    ? isExternal
+      ? linkTo.startsWith("http")
+        ? linkTo
+        : `https://${linkTo}`
+      : linkTo.startsWith("/")
+      ? linkTo
+      : `/${linkTo}`
+    : undefined;
+
   return (
-    <Component href={linkTo} className={textClasses}>
+    <Component
+      href={normalizedHref}
+      className={textClasses}
+      target={newTab ? "_blank" : undefined}
+      rel={newTab ? "noopener noreferrer" : undefined}
+    >
       {children}
     </Component>
   );
