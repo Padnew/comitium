@@ -11,6 +11,7 @@ type TabsProps = {
   defaultTab?: number;
   fullWidth?: boolean;
   className?: string;
+  colour?: string;
 };
 
 export const Tabs: React.FC<TabsProps> = ({
@@ -18,6 +19,7 @@ export const Tabs: React.FC<TabsProps> = ({
   defaultTab = 0,
   fullWidth = false,
   className,
+  colour = "orange",
 }) => {
   const [activeIndex, setActiveIndex] = useState(defaultTab);
 
@@ -31,7 +33,7 @@ export const Tabs: React.FC<TabsProps> = ({
               "py-2 px-4 text-sm",
               fullWidth && "flex-1",
               activeIndex === i
-                ? "border-b-2 border-orange-500 font-semibold"
+                ? `border-b-2 border-${colour}-500 font-semibold`
                 : "text-gray-500 hover:text-black"
             )}
             onClick={() => setActiveIndex(i)}

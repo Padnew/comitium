@@ -17,6 +17,7 @@ type Story = StoryObj<typeof Tabs>;
 export const SimpleTabs: Story = {
   render: () => (
     <Tabs
+      colour="red"
       tabs={[
         {
           label: "Button Tab",
