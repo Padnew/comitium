@@ -7,3 +7,5 @@ export const colours = {
     black: "#000000",
     white: "#ffffff",
   };
+
+  export type ColourName = keyof typeof colours | (string & {});
