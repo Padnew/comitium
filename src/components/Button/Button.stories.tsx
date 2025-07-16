@@ -31,5 +31,9 @@ export const CancelButton: Story = {
   },
 };
 export const ColouredButton: Story = {
-  render: () => <Button colour="orange">Orange Button</Button>,
+  render: () => (
+    <Button colour="orange" variant="outline">
+      Orange outlined Button
+    </Button>
+  ),
 };

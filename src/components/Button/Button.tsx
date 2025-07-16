@@ -30,6 +30,10 @@ export const Button: React.FC<ButtonProps> = ({
       ? {
           backgroundColor: colours[colour],
         }
+      : variant == "outline" && colour
+      ? {
+          borderColor: colours[colour],
+        }
       : undefined;
 
   return (
