@@ -25,7 +25,7 @@ export const Button: React.FC<ButtonProps> = ({
     cancel: "bg-red-600 text-white hover:bg-red-700",
   };
 
-  const bgColorStyle =
+  const bgColourStyle =
     variant === "default" && colour
       ? {
           backgroundColor: colours[colour],
@@ -39,7 +39,7 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button
       className={clsx(base, variantClasses[variant], className)}
-      style={bgColorStyle}
+      style={bgColourStyle}
       {...props}
     >
       {children}
