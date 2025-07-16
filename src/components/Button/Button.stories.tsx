@@ -13,20 +13,23 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Default: Story = {
+export const DefaultButton: Story = {
   args: {
     variant: "default",
   },
 };
 
-export const Outline: Story = {
+export const OutlinedButton: Story = {
   args: {
     variant: "outline",
   },
 };
 
-export const Cancel: Story = {
+export const CancelButton: Story = {
   args: {
     variant: "cancel",
   },
+};
+export const ColouredButton: Story = {
+  render: () => <Button colour="orange">Orange Button</Button>,
 };
