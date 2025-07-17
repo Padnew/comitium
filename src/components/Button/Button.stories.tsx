@@ -5,30 +5,21 @@ const meta: Meta<typeof Button> = {
   title: "Components/Button",
   component: Button,
   tags: ["autodocs"],
-  args: {
-    children: "Click me!",
-  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Button>;
 
 export const DefaultButton: Story = {
-  args: {
-    variant: "default",
-  },
+  render: () => <Button>Default button</Button>,
 };
 
 export const OutlinedButton: Story = {
-  args: {
-    variant: "outline",
-  },
+  render: () => <Button variant="outline">Outlined button</Button>,
 };
 
 export const CancelButton: Story = {
-  args: {
-    variant: "cancel",
-  },
+  render: () => <Button variant="cancel">Cancel</Button>,
 };
 export const ColouredButton: Story = {
   render: () => (

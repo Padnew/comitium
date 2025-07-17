@@ -18,9 +18,9 @@ export const Button: React.FC<ButtonProps> = ({
   const { colours } = useTheme();
 
   const base =
-    "px-4 py-2 rounded font-medium transition-colors border border-radius-2px";
+    "px-4 py-2 rounded font-medium transition-colors border border-radius-2px bg--300";
   const variantClasses = {
-    default: `text-white`,
+    default: `text-gray-700`,
     outline: "border border-gray-300 text-gray-800 hover:bg-gray-100",
     cancel: "bg-red-600 text-white hover:bg-red-700",
   };
