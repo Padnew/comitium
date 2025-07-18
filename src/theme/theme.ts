@@ -1,4 +1,4 @@
-export const colours = {
+export const colors = {
     red: "#ff0000",
     blue: "#1c6ae8",
     green: "#02f72f",
@@ -8,4 +8,4 @@ export const colours = {
     white: "#ffffff",
   };
 
-  export type ColourName = keyof typeof colours | (string & {});
+  export type colorName = keyof typeof colors | (string & {});
