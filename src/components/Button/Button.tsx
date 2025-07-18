@@ -1,21 +1,21 @@
 import React from "react";
 import clsx from "clsx";
-import { ColourName } from "../../theme";
+import { colorName } from "../../theme";
 import { useTheme } from "../../theme/ThemeProvider";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "default" | "outline" | "cancel";
-  colour?: ColourName;
+  color?: colorName;
 };
 
 export const Button: React.FC<ButtonProps> = ({
   variant = "default",
   className,
   children,
-  colour,
+  color,
   ...props
 }) => {
-  const { colours } = useTheme();
+  const { colors } = useTheme();
 
   const base =
     "px-4 py-2 rounded font-medium transition-colors border border-radius-2px bg--300";
@@ -25,21 +25,21 @@ export const Button: React.FC<ButtonProps> = ({
     cancel: "bg-red-600 text-white hover:bg-red-700",
   };
 
-  const bgColourStyle =
-    variant === "default" && colour
+  const bgcolorStyle =
+    variant === "default" && color
       ? {
-          backgroundColor: colours[colour],
+          backgroundColor: colors[color],
         }
-      : variant == "outline" && colour
+      : variant == "outline" && color
       ? {
-          borderColor: colours[colour],
+          borderColor: colors[color],
         }
       : undefined;
 
   return (
     <button
       className={clsx(base, variantClasses[variant], className)}
-      style={bgColourStyle}
+      style={bgcolorStyle}
       {...props}
     >
       {children}
